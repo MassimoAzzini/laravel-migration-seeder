@@ -2,9 +2,9 @@
 
 @section('content')
 
-    <h1>HOME</h1>
-
     <div class="container">
+
+        <h1 class="text-center">HOME</h1>
         @foreach ($trains as $train)
 
         <div class="card w-100">
@@ -14,18 +14,18 @@
             </div>
             <div class="d-flex justify-content-between">
                 <div class="d-flex flex-column">
-                    {{-- <span>{{ $train->time('Partenza') }}</span> --}}
-                    <span>stazione part</span>
+                    <span>{{ $train->Partenza }}</span>
+                    <span>{{ $train->Stazione_di_partenza }}</span>
                 </div>
                 <div>
                     <span>durata</span>
                 </div>
                 <div class="d-flex flex-column">
-                    <span>ora part</span>
-                    <span>stazione part</span>
+                    <span>{{ $train->Arrivo }}</span>
+                    <span>{{ $train->Stazione_di_arrivo }}</span>
                 </div>
                 <div>
-                    <span>dettagli</span>
+                    <button>dettagli</button>
                 </div>
                 <div class="d-flex flex-column">
                     <span>a partire da</span>
