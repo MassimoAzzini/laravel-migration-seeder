@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('trains', function (Blueprint $table) {
-            $table->string('Tipo', 30)->after('Azienda');
+            $table->string('type', 30)->after('agency');
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('trains', function (Blueprint $table) {
-            $table->dropColumn('Tipo');
+            $table->dropColumn('type');
         });
     }
 };

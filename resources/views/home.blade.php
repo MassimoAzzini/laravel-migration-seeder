@@ -6,26 +6,35 @@
 
         <h1 class="text-center">HOME</h1>
         @foreach ($trains as $train)
+        @php
+            $dateTimeDeparture=date_create( $train->departure );
+            $hourDeparture=date_format($dateTimeDeparture, 'H:i:s');
+            $dayDeparture=date_format($dateTimeDeparture, 'd/m/Y');
+            $dateTimeArrival=date_create( $train->arrival );
+            $hourArrival=date_format($dateTimeArrival, 'H:i:s');
+            $dayArrival=date_format($dateTimeArrival, 'd/m/Y');
+            $durationTravel=date_diff($dateTimeDeparture,$dateTimeArrival);
+        @endphp
 
         <div class="card w-100">
             <div>
-                <span>{{ $train->Tipo }}</span>
-                <span>{{ $train->Codice_treno }}</span>
+                <span>{{ $train->type }}</span>
+                <span>{{ $train->train_code }}</span>
             </div>
             <div class="d-flex justify-content-between">
                 <div class="d-flex flex-column">
-                    <span>{{ $train->Partenza }}</span>
-                    <span>{{ $train->Stazione_di_partenza }}</span>
+                    <span>{{ $train->departure }}</span>
+                    <span>{{ $train->departure_station }}</span>
                 </div>
                 <div>
-                    <span>durata</span>
+                    <span>{{ $durationTravel->format("%H:%i:%s") }}</span>
                 </div>
                 <div class="d-flex flex-column">
-                    <span>{{ $train->Arrivo }}</span>
-                    <span>{{ $train->Stazione_di_arrivo }}</span>
+                    <span>{{ $train->arrival }}</span>
+                    <span>{{ $train->arrival_station }}</span>
                 </div>
                 <div>
-                    <button>dettagli</button>
+                    <a class="btn btn-primary">dettagli</a>
                 </div>
                 <div class="d-flex flex-column">
                     <span>a partire da</span>
