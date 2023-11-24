@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('trains', function (Blueprint $table) {
-            $table->string('type', 30)->after('agency');
+            $table->string('type', 30)->default('')->after('agency');
         });
     }
 
